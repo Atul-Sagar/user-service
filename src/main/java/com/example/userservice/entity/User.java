@@ -5,6 +5,8 @@ import lombok.*;
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,5 +17,9 @@ public class User {
     private Long id;
 
     private String name;
+
+    @Column(unique = true)
     private String email;
+
+    private String password;
 }
