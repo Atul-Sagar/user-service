@@ -19,4 +19,12 @@ public class DashboardService {
         return dashboardRepository.findAll();
     }
 
+    public Dashboard save(Dashboard dashboard){
+        return dashboardRepository.save(dashboard);
+    }
+
+    public void delete(Long id){
+        dashboardRepository.deleteById(id);
+    }
+
 }
