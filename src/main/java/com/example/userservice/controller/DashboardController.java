@@ -3,12 +3,14 @@ package com.example.userservice.controller;
 import com.example.userservice.entity.Dashboard;
 import com.example.userservice.repository.DashboardRepository;
 import com.example.userservice.service.DashboardService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/dashboard")
+@SecurityRequirement(name="bearerAuth")
 public class DashboardController {
 
     private final DashboardService dashboardService;

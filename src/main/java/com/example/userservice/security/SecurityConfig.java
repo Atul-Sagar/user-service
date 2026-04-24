@@ -14,7 +14,11 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll() // ✅ allow auth APIs
+                        .requestMatchers(
+                                "/auth/**",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**"
+                        ).permitAll() // ✅ allow auth APIs
                         .anyRequest().authenticated()            // 🔒 everything else secured
                 )
                 .addFilterBefore(new JwtFilter(),
